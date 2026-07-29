@@ -1,0 +1,54 @@
+{
+  "$schema_note": "このファイルは、AIエージェントが新規プロジェクトを立ち上げる際にユーザーへ尋ねる最小質問セットの定義です。各questionのkeyは、templates/配下の *.template ファイル内で {{KEY}} という形式のプレースホルダとして参照されます。",
+  "questions": [
+    {
+      "key": "PROJECT_NAME",
+      "prompt": "プロジェクト名(リポジトリ名)は何ですか?",
+      "example": "my-task-tracker",
+      "required": true
+    },
+    {
+      "key": "PROJECT_PURPOSE",
+      "prompt": "このプロジェクトの目的は何ですか?何を解決し、誰の何を便利にしますか?(1〜3文)",
+      "example": "個人開発者が複数プロジェクトのTODOを1画面で横断管理できるようにする。",
+      "required": true
+    },
+    {
+      "key": "TECH_STACK",
+      "prompt": "技術スタック(言語・フレームワーク・ランタイムのバージョン)は何ですか?わからない場合は候補を提示してもらってください。",
+      "example": "Node.js 20 + TypeScript 5 + Express",
+      "required": true
+    },
+    {
+      "key": "MAIN_FEATURES",
+      "prompt": "主要機能を3〜7個、箇条書きで教えてください。",
+      "example": "- タスクの追加/完了/削除\n- 期限によるソート\n- CSVエクスポート",
+      "required": true
+    },
+    {
+      "key": "TARGET_USERS",
+      "prompt": "このプロジェクトを使うのは誰ですか?",
+      "example": "個人開発者(自分自身)",
+      "required": true
+    },
+    {
+      "key": "GITHUB_ACCOUNT",
+      "prompt": "GitHubアカウント名(リポジトリURL生成に使用)は何ですか?",
+      "example": "your-github-id",
+      "required": true
+    },
+    {
+      "key": "VISIBILITY",
+      "prompt": "公開範囲は public / private のどちらですか?",
+      "example": "private",
+      "required": true
+    },
+    {
+      "key": "LICENSE",
+      "prompt": "ライセンスは何にしますか?(MIT / Apache-2.0 / 非公開 など)",
+      "example": "MIT",
+      "required": true
+    }
+  ],
+  "usage_note": "回答がすべて揃うまでは実装に着手せず、不明点は[要確認: 内容]の形でファイル内に明示すること。ユーザーが「おまかせ」と答えた項目は、PROJECT_PURPOSEから判断した推奨値を根拠1行とともに提案してから先に進むこと。"
+}
