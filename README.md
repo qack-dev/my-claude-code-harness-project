@@ -42,7 +42,7 @@
    git clone https://github.com/qack-dev/my-claude-code-harness-project.git
    ```
 
-2. `templates/commands/init.md.template` を、**Claude Codeのユーザースコープのコマンドディレクトリ**(プロジェクトごとの`.claude/commands/`ではなく、ホームディレクトリ配下の`.claude/commands/`)へ `init.md` としてコピーする
+2. `templates/commands/init.md.template` を、**Claude Codeのユーザースコープのコマンドディレクトリ**(プロジェクトごとの`.claude/commands/` ではなく、ホームディレクトリ配下の `.claude/commands/`。※Windowsの場合は `Win+R` を押し `%USERPROFILE%\.claude\commands` と入力してフォルダを開くことができます)へ `init.md` としてコピーする
 3. コピーした`init.md`冒頭の `ハーネスリポジトリのローカルパス: [要確認: ...]` を、手順1でcloneした実際のローカルパスに書き換える
 
 これで、以後どの新規プロジェクトでも `/init` が自動的に使えるようになります(プロジェクトごとの再セットアップは不要)。
