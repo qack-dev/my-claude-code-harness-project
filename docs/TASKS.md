@@ -30,6 +30,8 @@ AIエージェントは着手前に必ずこのファイルを読み、着手す
   - 完了条件: `npm run verify`が実際に成功する
 - [x] `README.md`を作成
   - 完了条件: 13セクションが揃い、クイックスタートのコマンドが実際に動作する
+- [x] Issue #1「READMEの使い方が分かりにくい」への対応: プロジェクト詳細の入力方式を「PROJECT_BRIEF.md記入 + グローバル`/init` + 空欄/曖昧な項目のみ対話」に統一し、README.mdを全面改修
+  - 完了条件: `templates/PROJECT_BRIEF.md.template`・`templates/commands/init.md.template`・`docs/adr/0002-project-brief-and-global-init-command.md`を追加し、`README.md`/`docs/PRD.md`/`docs/ARCHITECTURE.md`/`templates/questions.json`/`CLAUDE.md`を新フローに統一。`npm run verify`が通り、一時ディレクトリでのダミープロジェクト生成テストで`{{KEY}}`置換が過不足なく解決することを確認済み
 
 ## スコープ外(やらないこと)
 

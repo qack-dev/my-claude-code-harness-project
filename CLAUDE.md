@@ -19,8 +19,9 @@
 | ディレクトリ | 役割 |
 | --- | --- |
 | `templates/` | 他プロジェクトへ展開する汎用ハーネス本体(`{{KEY}}`形式のプレースホルダを含む) |
-| `templates/questions.json` | 新規プロジェクト立ち上げ時にAIが尋ねる最小質問セットの定義 |
-| `templates/commands/` | `.claude/commands/`用の汎用テンプレート(plan/verify/commit) |
+| `templates/questions.json` | プロジェクト詳細の最小質問セットの定義。一次情報源は`PROJECT_BRIEF.md`で、AIが対話で尋ねるのは空欄/曖昧な項目のみ(詳細: `docs/adr/0002-project-brief-and-global-init-command.md`) |
+| `templates/PROJECT_BRIEF.md.template` | 生成先プロジェクトのルートに置く、プロジェクト詳細の記入用紙の雛形 |
+| `templates/commands/` | `.claude/commands/`用の汎用テンプレート(init/plan/verify/commit)。`init.md.template`のみユーザースコープのグローバルコマンドとして使う |
 | `docs/` | 本リポジトリ自体のPRD/ARCHITECTURE/TASKS/ADR |
 | `.claude/commands/` | 本リポジトリを保守する際の定型スラッシュコマンド |
 | `tests/` | テンプレート整合性チェックスクリプト |

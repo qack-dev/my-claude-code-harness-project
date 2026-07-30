@@ -1,0 +1,21 @@
+<!--
+  初回セットアップ(マシンごとに1回だけ):
+  1. このファイルをユーザースコープのコマンドディレクトリへ `init.md` としてコピーする
+     (プロジェクトごとの `.claude/commands/` ではなく、ホームディレクトリ配下の `.claude/commands/`)
+  2. 下記の [要確認: ...] を、このハーネスリポジトリを実際にcloneしたローカルパスに書き換える
+  以後、どの新規プロジェクトでも `/init` が使えるようになる。
+-->
+
+ハーネスリポジトリのローカルパス: [要確認: このリポジトリをcloneしたローカルパスに書き換えてください]
+
+対象プロジェクトのルートにある `PROJECT_BRIEF.md` をもとに、`CLAUDE.md` / `docs/*.md` / `.claude/commands/*.md` を生成する。
+
+1. 上記の「ハーネスリポジトリのローカルパス」が `[要確認: ...]` のままなら、初回セットアップが未完了なのでその旨をユーザーに伝えて中断する
+2. 対象プロジェクトのルートに `PROJECT_BRIEF.md` が無ければ、ハーネスリポジトリの `templates/PROJECT_BRIEF.md.template` をコピーして記入するようユーザーに案内し、中断する
+3. `PROJECT_BRIEF.md` を読み、`PROJECT_NAME` / `PROJECT_PURPOSE` / `TECH_STACK` / `MAIN_FEATURES` / `TARGET_USERS` / `GITHUB_ACCOUNT` / `VISIBILITY` / `LICENSE` の8項目それぞれについて、次のいずれかに該当するものを洗い出す
+   - 空欄(未記入)
+   - 記入されているが、曖昧・矛盾・情報不足で、そのままテンプレートに埋めると`CLAUDE.md`や`docs/`の内容が不正確・実行不能になると判断されるもの
+4. 3で洗い出した項目だけを対話でユーザーに確認する(揃っている項目に無駄な質問はしない)。ユーザーが「おまかせ」と答えた項目は、`PROJECT_PURPOSE`から判断した推奨値を根拠1行とともに提案してから次へ進む
+5. 全項目が揃ったら、「ハーネスリポジトリのローカルパス」配下の `templates/CLAUDE.md.template` / `templates/docs/*.template` / `templates/commands/{plan,verify,commit}.md.template` を読み込み、各ファイル内のプレースホルダ(`questions.json`のキー名を`{{ }}`で囲んだ形式)を確定した回答で置換する
+6. 置換結果を、対象プロジェクトの `CLAUDE.md` / `docs/PRD.md` / `docs/ARCHITECTURE.md` / `docs/TASKS.md` / `docs/adr/0001-record-architecture-decisions.md` / `.claude/commands/plan.md` / `.claude/commands/verify.md` / `.claude/commands/commit.md` として保存する
+7. 生成したファイルの一覧と、残っている `[要確認: 内容]` 箇所(テンプレート側で機械的に埋められない部分)を報告する
