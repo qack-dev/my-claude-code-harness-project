@@ -18,4 +18,5 @@
 4. 3で洗い出した項目だけを対話でユーザーに確認する(揃っている項目に無駄な質問はしない)。ユーザーが「おまかせ」と答えた項目は、`PROJECT_PURPOSE`から判断した推奨値を根拠1行とともに提案してから次へ進む
 5. 全項目が揃ったら、「ハーネスリポジトリのローカルパス」配下の `templates/CLAUDE.md.template` / `templates/docs/*.template` / `templates/commands/{plan,verify,commit}.md.template` を読み込み、各ファイル内のプレースホルダ(`questions.json`のキー名を`{{ }}`で囲んだ形式)を確定した回答で置換する
 6. 置換結果を、対象プロジェクトの `CLAUDE.md` / `docs/PRD.md` / `docs/ARCHITECTURE.md` / `docs/TASKS.md` / `docs/adr/0001-record-architecture-decisions.md` / `.claude/commands/plan.md` / `.claude/commands/verify.md` / `.claude/commands/commit.md` として保存する
-7. 生成したファイルの一覧と、残っている `[要確認: 内容]` 箇所(テンプレート側で機械的に埋められない部分)を報告する
+7. 対象プロジェクトのルートに既存の `LICENSE` / `README.md` があれば、削除してよいかユーザーに確認したうえで削除する(本ハーネスはこれらを生成・管理しないため、リポジトリ作成時の初期雛形が新しく生成した`CLAUDE.md`/`docs/`と食い違ったまま残ってしまうのを防ぐ)。ユーザーが実質的な内容(実際のプロジェクト説明や独自のライセンス文面)を書き込んでいると判断される場合は削除せず、その旨を伝えて判断を委ねる
+8. 生成したファイルの一覧、削除したファイル(あれば)、残っている `[要確認: 内容]` 箇所(テンプレート側で機械的に埋められない部分)を報告する
