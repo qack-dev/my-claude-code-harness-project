@@ -20,6 +20,8 @@ AIエージェントは着手前に必ずこのファイルを読み、着手す
 
 ## 完了
 
+- [x] Issue #5「LICENSEとREADME.mdが残る」への対応: `/init`実行フローに、対象プロジェクトの既存`LICENSE`/`README.md`をユーザー確認のうえ削除するステップを追加
+  - 完了条件: `templates/commands/init.md.template`に削除ステップを追記し、`npm run verify`が通ること
 - [x] リポジトリの基盤ファイル一式(`.gitignore`/`.env.example`/`LICENSE`/`.editorconfig`/`.markdownlint.jsonc`/`package.json`)を作成
   - 完了条件: 各ファイルが存在し、秘密情報を含まない
 - [x] `templates/`配下(汎用ハーネス本体)を作成
